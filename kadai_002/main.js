@@ -96,6 +96,10 @@ const rankCheck = score => {
 
 //ゲームを終了
 const gameOver = id => {
+
+    typedfield.style.display = 'none';
+    untypedfield.textContent = 'タイムアップ！';
+
     
     clearInterval(id);
 
@@ -107,7 +111,7 @@ const gameOver = id => {
     if(result == true) {
         window.location.reload();
     }
-},20);
+},10);
 
 };
 
@@ -135,14 +139,6 @@ const timer = () => {
 start.addEventListener('click', () => {
     timer();
     
-    const timeUp = function() {
-        typedfield.style.display = 'none';
-        untypedfield.textContent = 'タイムアップ！';
-        
-    }
-        setTimeout(timeUp,3000);
-    
-
     //ランダムなテキストを表示する
     createText();
 
